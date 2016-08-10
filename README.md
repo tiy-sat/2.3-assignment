@@ -11,7 +11,7 @@
 5. Push up your changes when finished
   - `git push origin normal-mode`
 6. Open a Pull Request with your changes
-7. Submit a link to your open Pull Request
+7. Submit a link to The Iron Yard Online of your open Pull Request
 
 ### Adventurer Mode
 1. Create a write-up about [What is an event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
