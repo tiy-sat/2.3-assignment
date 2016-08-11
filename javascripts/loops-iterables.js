@@ -45,7 +45,6 @@ capitalizeWords = capitalizeWords.join(" ");
 return capitalizeWords;
 }
 
-console.log(capitalizeAll("i hate looping things sometimes 🙆"));
 console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
 
 // PART 3: write a function called properSentences(). It should take as input a string and capitalize the first letter of every sentence in that string. (For our purposes, all sentences will end with periods. Write one that works with ? and ! and receive a gratifying high five, right on the hand!)
@@ -69,9 +68,11 @@ console.assert(properSentences(paragraph) === "It was a fine morning. The wine w
 
 // PART 4: write a function called iPutTheFunIn(). It should take a string as input. The output should be a copy of the original string with the word 'fun' inserted into the center of the string.
 function iPutTheFunIn(string) {
-	for (var i = 0; i < string.length; i++) {
-		string[i]
-	}
+	var centerNum = (string.length/2)
+	var arrayOfString = string.split("")
+	arrayOfString.splice(centerNum, 0, "fun")
+	arrayOfString = arrayOfString.join("")
+	return arrayOfString;
 }
 
 
@@ -85,8 +86,7 @@ console.assert(iPutTheFunIn("reds") === "refunds")
 // test 1
 var paragraph = 'mom bring your crappy self in here. i want a dang sandwich.'
 function pipeline(paragraph,nicer,properSentences) {
-	var map = nicer.properSentences.map;
-	var answer = map.call(nicer(properSentences(s)));
+	return properSentences(nicer(paragraph))
 }
 // not sure how to use map exactly
 console.assert(pipeline(paragraph,nicer,properSentences) === "Mom bring your self in here. I want a sandwich.")
@@ -108,8 +108,9 @@ var exclaimAll = function(arr) {
 	for (var i = 0; i < arr.length; i ++) {
 		newArr.push(arr[i] + '!')
 	}
+	return newArr;
 }
 
-var result = pipeline([10,20,30],squareDance,exclaimAll)
+var result = pipeline([10,20,30], squareDance, exclaimAll)
 console.assert(result[1] === "400!")
 console.assert(result[2] === "900!")
