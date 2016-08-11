@@ -12,16 +12,21 @@ console.assert(squareDance([5,10,15])[2] === 225)
 console.assert(squareDance([3,6,9,3])[0] === 9)
 
 // PART 1: write a function called nicer(). It should clean up the language in its input sentence.
-var badWords = ["heck", "darn", "dang", "crappy"]
-function nicer() {
-	for (var i = 0; i < badWords.length; i++){
-		switch (badWords[i]) {
-			case "heck":
-				badWords.splice(i, 1);
-				break;
-			default: " ";
-		}
-	}
+function nicer(words){
+    var wordsArray = words.split(" ");
+    for (var i = 0; i < wordsArray.length; i++) {
+        if(wordsArray[i] == "heck"){
+            wordsArray.splice(i, 1);
+        } else if(wordsArray[i] == "darn"){
+            wordsArray.splice(i, 1);
+        } else if(wordsArray[i] == "crappy"){
+            wordsArray.splice(i, 1);
+        } else if(wordsArray[i] == "dang"){
+            wordsArray.splice(i, 1);
+        }
+    }
+    return wordsArray.join(" ");
+    console.log(wordString);
 }
 
 console.assert(nicer("mom get the heck in here and bring me a darn sandwich.") === "mom get the in here and bring me a sandwich.")
@@ -30,18 +35,17 @@ console.assert(nicer("here son, your crappy sandwich is on the dang plate.") ===
 
 // PART 2: write a function called capitalizeAll(). It should take as input a sentence and capitalize the first letter of every word in the sentence.
 function capitalizeAll(stringValue) {
-	var capitalizeArray = stringValue.split(". ");
-	for (var i = 0; i < capitalizeArray.length; i++) {
-		if (i !== capitalizeArray.length - 1) {
-		capitalizeArray[i] = capitalizeArray[i].charAt(0).toUpperCase() + capitalizeArray[i].slice(1);
+	var capitalizeWords = stringValue.split(" ");
+	for (var i = 0; i < capitalizeWords.length; i++) {
+		if (i !== capitalizeWords.length + 1) {
+		capitalizeWords[i] = capitalizeWords[i].charAt(0).toUpperCase() + capitalizeWords[i].slice(1);
 	}
 }
-capitalizeArray = capitalizeArray.join("");
-return capitalizeArray;
+capitalizeWords = capitalizeWords.join(" ");
+return capitalizeWords;
 }
-console.log(capitalizeAll ("i hate loops and functions. fuck all this noise"));
 
-console.log(capitalizeAll("i hate looping things"));
+console.log(capitalizeAll("i hate looping things sometimes 🙆"));
 console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
 
 // PART 3: write a function called properSentences(). It should take as input a string and capitalize the first letter of every sentence in that string. (For our purposes, all sentences will end with periods. Write one that works with ? and ! and receive a gratifying high five, right on the hand!)
@@ -64,8 +68,10 @@ return sentenceArray;
 console.assert(properSentences(paragraph) === "It was a fine morning. The wine was good. Light slanted in through the cafe window.")
 
 // PART 4: write a function called iPutTheFunIn(). It should take a string as input. The output should be a copy of the original string with the word 'fun' inserted into the center of the string.
-function iPutTheFunIn() {
-
+function iPutTheFunIn(string) {
+	for (var i = 0; i < string.length; i++) {
+		string[i]
+	}
 }
 
 
@@ -78,6 +84,9 @@ console.assert(iPutTheFunIn("reds") === "refunds")
 
 // test 1
 var paragraph = 'mom bring your crappy self in here. i want a dang sandwich.'
+function pipeline(paragraph,nicer,properSentences) {
+	var answer = paragraph(this.nicer(this.properSentences));
+}
 
 console.assert(pipeline(paragraph,nicer,properSentences) === "Mom bring your self in here. I want a sandwich.")
 
