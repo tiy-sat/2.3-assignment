@@ -88,7 +88,7 @@ var paragraph = 'mom bring your crappy self in here. i want a dang sandwich.'
 function pipeline(paragraph,nicer,properSentences) {
 	return properSentences(nicer(paragraph))
 }
-// not sure how to use map exactly
+
 console.assert(pipeline(paragraph,nicer,properSentences) === "Mom bring your self in here. I want a sandwich.")
 
 // test 2
