@@ -81,13 +81,14 @@ console.assert(iPutTheFunIn("reds") === "refunds")
 // PART 5: write a function called pipeline(). it should take three inputs: (1) a starting value, (2) a function, and (3) another function. it should use functions (2) and (3) on the starting value, one after the other, and return a new value that has been processed by both function (2) and function (3).
 
 // the following three tests all correspond to the pipeline() function.
-
+//  😖 what is pipeline?? everything i found on google was confusing
 // test 1
 var paragraph = 'mom bring your crappy self in here. i want a dang sandwich.'
 function pipeline(paragraph,nicer,properSentences) {
-	var answer = paragraph(this.nicer(this.properSentences));
+	var map = nicer.properSentences.map;
+	var answer = map.call(nicer(properSentences(s)));
 }
-
+// not sure how to use map exactly
 console.assert(pipeline(paragraph,nicer,properSentences) === "Mom bring your self in here. I want a sandwich.")
 
 // test 2
