@@ -1,26 +1,73 @@
 // PART 0: Write a function called squareDance() that squares each number in an array.
 
+function squareDance(num) {
+	for (var i = 0; i < num.length; i++) {
+		num[i] = Math.pow(num[i],2);
+	}
+	return num;
+}
+
 console.assert(squareDance([1, 2])[1] === 4)
 console.assert(squareDance([5,10,15])[2] === 225)
 console.assert(squareDance([3,6,9,3])[0] === 9)
 
 // PART 1: write a function called nicer(). It should clean up the language in its input sentence.
+var badWords = ["heck", "darn", "dang", "crappy"]
+function nicer() {
+	for (var i = 0; i < badWords.length; i++){
+		switch (badWords[i]) {
+			case "heck":
+				badWords.splice(i, 1);
+				break;
+			default: " ";
+		}
+	}
+}
 
 console.assert(nicer("mom get the heck in here and bring me a darn sandwich.") === "mom get the in here and bring me a sandwich.")
 
 console.assert(nicer("here son, your crappy sandwich is on the dang plate.") === "here son, your sandwich is on the plate.")
 
 // PART 2: write a function called capitalizeAll(). It should take as input a sentence and capitalize the first letter of every word in the sentence.
+function capitalizeAll(stringValue) {
+	var capitalizeArray = stringValue.split(". ");
+	for (var i = 0; i < capitalizeArray.length; i++) {
+		if (i !== capitalizeArray.length - 1) {
+		capitalizeArray[i] = capitalizeArray[i].charAt(0).toUpperCase() + capitalizeArray[i].slice(1);
+	}
+}
+capitalizeArray = capitalizeArray.join("");
+return capitalizeArray;
+}
+console.log(capitalizeAll ("i hate loops and functions. fuck all this noise"));
 
-console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.'))
+console.log(capitalizeAll("i hate looping things"));
+console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
 
 // PART 3: write a function called properSentences(). It should take as input a string and capitalize the first letter of every sentence in that string. (For our purposes, all sentences will end with periods. Write one that works with ? and ! and receive a gratifying high five, right on the hand!)
 
 var paragraph = 'it was a fine morning. the wine was good. light slanted in through the cafe window.'
 
+function properSentences(str) {
+	var sentenceArray = str.split(". ");
+	for (var i = 0; i < sentenceArray.length; i++) {
+		if (i !== sentenceArray.length - 1) {
+			sentenceArray[i] = sentenceArray[i].charAt(0).toUpperCase() + sentenceArray[i].slice(1) + ". ";
+		} else {
+		sentenceArray[i] = sentenceArray[i].charAt(0).toUpperCase() + sentenceArray[i].slice(1);
+	}
+}
+sentenceArray = sentenceArray.join("");
+return sentenceArray;
+}
+
 console.assert(properSentences(paragraph) === "It was a fine morning. The wine was good. Light slanted in through the cafe window.")
 
 // PART 4: write a function called iPutTheFunIn(). It should take a string as input. The output should be a copy of the original string with the word 'fun' inserted into the center of the string.
+function iPutTheFunIn() {
+
+}
+
 
 console.assert(iPutTheFunIn("funerary") === "funefunrary")
 console.assert(iPutTheFunIn("reds") === "refunds")
