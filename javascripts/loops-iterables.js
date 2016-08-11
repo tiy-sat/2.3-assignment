@@ -96,27 +96,29 @@ console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like
 
 // PART 3: write a function called properSentences(). It should take as input a string and capitalize the first letter of every sentence in that string. (For our purposes, all sentences will end with periods. Write one that works with ? and ! and receive a gratifying high five, right on the hand!)
 
-// var paragraph = 'it was a fine morning. the wine was good. light slanted in through the cafe window.'
-// function properSentences(paragraph){
-// 	sentences = paragraph.split(". ");
-// 	for (var i = 0; i < sentences.length; i++) {
-// 		sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].substring(1);
-// 	}
-// 	console.log(sentences);
-//
-// }
-
-// console.assert(properSentences(paragraph) === "It was a fine morning. The wine was good. Light slanted in through the cafe window.")
+var paragraph = 'it was a fine morning. the wine was good. light slanted in through the cafe window.'
+function properSentences(paragraph){
+	sentences = paragraph.split(". ");
+	for (var i = 0; i < sentences.length; i++) {
+		if (i !== sentences.length - 1){
+			sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].substring(1) + ". ";
+		}else{
+			sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].substring(1);
+		}
+	}
+	sentences = sentences.join("");
+	return sentences;
+}
+console.assert(properSentences(paragraph) === "It was a fine morning. The wine was good. Light slanted in through the cafe window.")
 
 // PART 4: write a function called iPutTheFunIn(). It should take a string as input. The output should be a copy of the original string with the word 'fun' inserted into the center of the string.
 var fun = "fun";
 function iPutTheFunIn(str){
 	var halves = str.split("e");
 	for (var i = 0; i < halves.length; i++) {
-		var insert = halves[i].splice(1, 0, fun);
-		console.log(insert);
+		return halves.splice(i, 0, fun);
 	}
-
+	console.log(halves);
 }
 
 
@@ -151,6 +153,6 @@ var exclaimAll = function(arr) {
 	}
 }
 
-var result = pipeline([10,20,30],squareDance,exclaimAll)
+var result = pipeline([10,20,30],squareDance, exclaimAll)
 console.assert(result[1] === "400!")
 console.assert(result[2] === "900!")
