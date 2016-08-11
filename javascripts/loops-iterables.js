@@ -40,6 +40,10 @@ function nicer(words){
 			wordsArray.splice(i, 1);
 		}else if(wordsArray[i] == "darn"){
 			wordsArray.splice(i, 1);
+		}else if(wordsArray[i] == "crappy"){
+			wordsArray.splice(i, 1);
+		}else if(wordsArray [i] == "dang"){
+			wordsArray.splice(i, 1);
 		}
 	}
 	return wordsArray.join(" ");
@@ -54,7 +58,7 @@ function nicer(words){
 // 		nonowords.splice(i, 1);
 // 		break;
 // 	}
-// 
+//
 // }
 
 
@@ -64,11 +68,42 @@ console.assert(nicer("here son, your crappy sandwich is on the dang plate.") ===
 
 // PART 2: write a function called capitalizeAll(). It should take as input a sentence and capitalize the first letter of every word in the sentence.
 
+// http://www.w3schools.com/jsref/jsref_charat.asp
+// http://www.w3schools.com/jsref/jsref_substring.asp
+
+// function capitalizeAll(str){
+// 	// var arr = str.split (" ");
+// 	// for (var i = 0; i < arr.length; i++) {
+// 	// 	arr[i] = arr[i].charAt(0).toUppercase() + arr[i].substring(1);
+// 	// }
+// 	// return arr.join(" ");
+// 	//Couldn't figure out why this wasn't working
+// }
+
+
+function capitalizeAll(str) {
+	 words = str.split(" ");
+	 for(var i = 0; i < words.length; i++) {
+	    var letters = words[i].split("");
+	    letters[0] = letters[0].toUpperCase();
+	    words[i] = letters.join("");
+	 }
+	 return words.join(" ");
+}
+
+
 console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like Sunday.')
 
 // PART 3: write a function called properSentences(). It should take as input a string and capitalize the first letter of every sentence in that string. (For our purposes, all sentences will end with periods. Write one that works with ? and ! and receive a gratifying high five, right on the hand!)
 
 var paragraph = 'it was a fine morning. the wine was good. light slanted in through the cafe window.'
+function properSentences(paragraph){
+	sentences = paragraph.split(". ");
+	for (var i = 0; i < sentences.length; i++) {
+		
+	}
+	console.log(sentences);
+}
 
 console.assert(properSentences(paragraph) === "It was a fine morning. The wine was good. Light slanted in through the cafe window.")
 
